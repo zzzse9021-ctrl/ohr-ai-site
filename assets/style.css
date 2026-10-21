@@ -1,0 +1,97 @@
+/* Ohr AI — site styles. Blues sampled from the app icon. */
+:root {
+  --bg: #F4F5FA;
+  --surface: #FFFFFF;
+  --ink: #141A2E;
+  --ink-soft: #596079;
+  --accent: #3349B8;
+  --accent-soft: #6F8BE8;
+  --line: #DDE1EE;
+  --mark: rgba(245, 106, 0, 0.16);
+  --mark-line: #F56A00;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0D1120;
+    --surface: #151A2E;
+    --ink: #E8EBF6;
+    --ink-soft: #A1A8C3;
+    --accent: #A5B8FF;
+    --accent-soft: #6F8BE8;
+    --line: #252B44;
+    --mark: rgba(245, 106, 0, 0.22);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0D1120;
+  --surface: #151A2E;
+  --ink: #E8EBF6;
+  --ink-soft: #A1A8C3;
+  --accent: #A5B8FF;
+  --accent-soft: #6F8BE8;
+  --line: #252B44;
+  --mark: rgba(245, 106, 0, 0.22);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 24px; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.65 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-underline-offset: 2px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--accent-soft); outline-offset: 2px; border-radius: 4px; }
+
+.wrap { max-width: 44rem; margin: 0 auto; padding: 0 16px; }
+
+/* Top bar */
+.topbar { padding: 20px 0; }
+.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font-weight: 600; font-size: 17px; letter-spacing: -0.01em; }
+.brand img { width: 32px; height: 32px; display: block; }
+
+/* Home */
+.hero { padding: 72px 0 56px; text-align: center; }
+.hero img { width: 112px; height: 112px; filter: drop-shadow(0 12px 24px rgba(52, 69, 162, 0.35)); }
+.hero h1 { font-size: clamp(36px, 8vw, 52px); line-height: 1.1; letter-spacing: -0.02em; font-weight: 600; margin: 28px 0 8px; }
+.hero .tagline { color: var(--ink-soft); font-size: 18px; margin: 0; }
+.hero .lede { max-width: 32rem; margin: 24px auto 0; }
+.pill { display: inline-block; margin-top: 20px; padding: 4px 12px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink-soft); font-size: 13px; }
+.links { display: grid; gap: 12px; margin: 8px 0 72px; }
+.card { display: block; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; color: var(--ink); text-decoration: none; }
+.card strong { display: block; font-weight: 600; }
+.card span { color: var(--ink-soft); font-size: 14px; }
+a.card:hover { border-color: var(--accent-soft); }
+a.card:hover strong { color: var(--accent); }
+
+/* Policy */
+.doc { padding: 24px 0 64px; }
+.doc h1 { font-size: clamp(30px, 6vw, 40px); line-height: 1.15; letter-spacing: -0.02em; font-weight: 600; margin: 8px 0 12px; }
+.dates { color: var(--ink-soft); font-size: 14px; margin: 0 0 32px; }
+.dates span { display: inline-block; margin-right: 16px; }
+.toc { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px 20px; margin: 0 0 40px; }
+.toc h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); margin: 0 0 8px; font-weight: 600; }
+.toc ol { margin: 0; padding-left: 22px; columns: 2; column-gap: 32px; }
+.toc li { break-inside: avoid; font-size: 15px; line-height: 1.5; margin: 3px 0; }
+@media (max-width: 560px) { .toc ol { columns: 1; } }
+.doc section { border-top: 1px solid var(--line); padding-top: 8px; margin-top: 32px; }
+.doc h2 { font-size: 22px; line-height: 1.3; letter-spacing: -0.01em; font-weight: 600; margin: 24px 0 12px; }
+.doc h3 { font-size: 17px; font-weight: 600; margin: 24px 0 8px; }
+.doc p { margin: 0 0 14px; }
+.doc ul { margin: 0 0 14px; padding-left: 22px; }
+.doc li { margin: 0 0 6px; }
+.doc address { font-style: normal; margin: 0 0 14px; }
+.foot { border-top: 1px solid var(--line); padding: 24px 0 40px; color: var(--ink-soft); font-size: 14px; }
+.foot a { color: var(--ink-soft); }
+
+/* Review mode (?review): highlights sentences changed from the 10/21 draft. Invisible otherwise. */
+.rev { background: none; }
+.reviewing .rev { background: var(--mark); box-shadow: inset 0 -2px 0 var(--mark-line); border-radius: 2px; }
+.review-note { display: none; }
+.reviewing .review-note { display: block; background: var(--mark); border-left: 3px solid var(--mark-line); padding: 10px 14px; border-radius: 6px; font-size: 14px; margin: 0 0 24px; }
