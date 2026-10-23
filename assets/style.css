@@ -49,10 +49,11 @@ a { color: var(--accent); text-underline-offset: 2px; text-decoration-thickness:
 a:hover { text-decoration-thickness: 2px; }
 :focus-visible { outline: 2px solid var(--accent-soft); outline-offset: 2px; border-radius: 4px; }
 
-.wrap { max-width: 44rem; margin: 0 auto; padding: 0 16px; }
+.wrap { max-width: 44rem; margin: 0 auto; padding-inline: 20px; }
+@media (min-width: 600px) { .wrap { padding-inline: 24px; } }
 
 /* Top bar */
-.topbar { padding: 20px 0; }
+.topbar { padding-block: 20px; }
 .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font-weight: 600; font-size: 17px; letter-spacing: -0.01em; }
 .brand img { width: 32px; height: 32px; display: block; }
 
@@ -71,7 +72,7 @@ a.card:hover { border-color: var(--accent-soft); }
 a.card:hover strong { color: var(--accent); }
 
 /* Policy */
-.doc { padding: 24px 0 64px; }
+.doc { padding-top: 24px; padding-bottom: 64px; }
 .doc h1 { font-size: clamp(30px, 6vw, 40px); line-height: 1.15; letter-spacing: -0.02em; font-weight: 600; margin: 8px 0 12px; }
 .dates { color: var(--ink-soft); font-size: 14px; margin: 0 0 32px; }
 .dates span { display: inline-block; margin-right: 16px; }
@@ -87,7 +88,7 @@ a.card:hover strong { color: var(--accent); }
 .doc ul { margin: 0 0 14px; padding-left: 22px; }
 .doc li { margin: 0 0 6px; }
 .doc address { font-style: normal; margin: 0 0 14px; }
-.foot { border-top: 1px solid var(--line); padding: 24px 0 40px; color: var(--ink-soft); font-size: 14px; }
+.foot { border-top: 1px solid var(--line); padding-top: 24px; padding-bottom: 40px; color: var(--ink-soft); font-size: 14px; }
 .foot a { color: var(--ink-soft); }
 
 /* Review mode (?review): highlights sentences changed from the 10/21 draft. Invisible otherwise. */
